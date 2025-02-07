@@ -4,14 +4,14 @@
   import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Asegúrate de importar Bootstrap JS
   import "./css/global.css";
 
-  import Footer from "./lib/Footer.svelte";
-  import Api from "./lib/Api.svelte";
-  import Cart from "./lib/Cart.svelte";
+  import Footer from "./components/Footer.svelte";
+  import ProductsApi from "./components/ProductsApi.svelte";
+  import Cart from "./components/Cart.svelte";
 
-  import OffcanvasHeader from "./lib/OffcanvasHeader.svelte";
-  import ListProductsCart from "./lib/ListProductsCart.svelte";
-  import SubTotalCart from "./lib/SubTotalCart.svelte";
-  import ApiWhatApp from "./lib/ApiWhatApp.svelte";
+  import OffcanvasHeader from "./components/OffcanvasHeader.svelte";
+  import ListProductsCart from "./components/ListProductsCart.svelte";
+  import SubTotalCart from "./components/SubTotalCart.svelte";
+  import ApiWhatApp from "./components/ApiWhatApp.svelte";
 
   // Mostrar el carrito en la consola
   // $: console.log($cart);
@@ -25,7 +25,7 @@
     Bienvenidos a Tu Tienda de Café <i class="bi bi-cup-straw"></i>
   </h1>
   <div class="row g-4 mt-4">
-    <Api />
+    <ProductsApi />
   </div>
 </div>
 

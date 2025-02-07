@@ -1,5 +1,10 @@
 <script>
-  import { cart, removeFromCart } from "../stores/cartStore";
+  import { cart, getCart, removeFromCart } from "../stores/cartStore";
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    getCart(); // Obtiene los productos del carrito al cargar el componente
+  });
 </script>
 
 <div class="container mb-3">
