@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "name": "Café Caramel con Chocolate",
+    "price": 59.9,
+    "image": "cafe_01",
+    "category": "cafe"
+  },
+  {
+    "id": 2,
+    "name": "Café Frio con Chocolate Grande",
+    "price": 49.9,
+    "image": "cafe_02",
+    "category": "cafe"
+  },
+  {
+    "id": 3,
+    "name": "Latte Frio con Chocolate Grande",
+    "price": 54.9,
+    "image": "cafe_03",
+    "category": "cafe"
+  },
+  {
+    "id": 4,
+    "name": "Latte Frio con Chocolate Pequeño",
+    "price": 54.9,
+    "image": "cafe_04",
+    "category": "cafe"
+  },
+  {
+    "id": 5,
+    "name": "Malteada Fria con Chocolate Grande",
+    "price": 54.9,
+    "image": "cafe_05",
+    "category": "cafe"
+  },
+  {
+    "id": 6,
+    "name": "Café Mocha Caliente Chico",
+    "price": 39.9,
+    "image": "cafe_06",
+    "category": "cafe"
+  },
+  {
+    "id": 7,
+    "name": "Café Mocha Caliente Grande con Chocolate",
+    "price": 29.9,
+    "image": "cafe_07",
+    "category": "cafe"
+  },
+  {
+    "id": 8,
+    "name": "Café Caliente Capuchino Grande",
+    "price": 59.9,
+    "image": "cafe_08",
+    "category": "cafe"
+  },
+  {
+    "id": 9,
+    "name": "Café Mocha Caliente Mediano",
+    "price": 49.9,
+    "image": "cafe_09",
+    "category": "cafe"
+  },
+  {
+    "id": 10,
+    "name": "Café Mocha Frio con Caramelo Mediano",
+    "price": 49.9,
+    "image": "cafe_10",
+    "category": "cafe"
+  },
+  {
+    "id": 11,
+    "name": "Café Mocha Frio con Chocolate Mediano",
+    "price": 49.9,
+    "image": "cafe_11",
+    "category": "cafe"
+  },
+  {
+    "id": 12,
+    "name": "Café Espresso",
+    "price": 29.9,
+    "image": "cafe_12",
+    "category": "cafe"
+  },
+  {
+    "id": 13,
+    "name": "Café Capuchino Grande con Caramelo",
+    "price": 15.9,
+    "image": "cafe_13",
+    "category": "cafe"
+  },
+  {
+    "id": 14,
+    "name": "Café Caramelo Grande",
+    "price": 19.1,
+    "image": "cafe_14",
+    "category": "cafe"
+  },
+  {
+    "id": 15,
+    "name": "Café Pilón",
+    "price": 42.3,
+    "image": "cafe_15",
+    "category": "cafe"
+  },
+  {
+    "id": 16,
+    "name": " Café Cubita",
+    "price": 62.2,
+    "image": "cafe_16",
+    "category": "cafe"
+  }
+]

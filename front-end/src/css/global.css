@@ -1,0 +1,127 @@
+body {
+  background-color: #f9f9f9 !important;
+}
+h1 {
+  color: #ff4408 !important;
+}
+h4 {
+  width: 100% !important;
+  font-weight: 600;
+}
+.position-relative {
+  z-index: 1;
+}
+.card img {
+  -webkit-mask-image: linear-gradient(black 80%, transparent);
+  mask-image: linear-gradient(black 80%, transparent);
+}
+.btn-cart {
+  background-color: #1b1a20 !important;
+  color: white !important;
+}
+.btn-cart:hover {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+.custom-card:hover img {
+  transform: scale(1.1);
+}
+
+.custom-card img {
+  transition: transform 0.3s ease-in-out;
+}
+.bi-bag-heart {
+  font-size: 22px !important;
+}
+#offcanvasRight {
+  margin-top: 65px !important;
+}
+.offcanvas-body {
+  background-color: #f8f9fa !important;
+}
+.btn-primary {
+  background-color: #1b1a20 !important;
+  color: white;
+  border: #1b1a20 !important;
+}
+.btn-primary:hover {
+  border: none !important;
+  opacity: 0.8 !important;
+}
+
+.balanceo {
+  animation: swing 0.6s ease forwards;
+  display: inline-block;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+.offcanvas-header {
+  background-color: #cecece !important;
+}
+
+.btn_shopping {
+  background-color: #ff6f41 !important;
+  border: 1px solid #ff6f41 !important;
+  color: white !important;
+}
+.btn_shopping :hover {
+  animation: swing 0.6s ease forwards;
+  display: inline-block;
+}
+.fs-5 {
+  font-size: 18px !important;
+  color: #595454 !important;
+}
+.fs-6 {
+  font-size: 14px !important;
+  color: #b3b3b3 !important;
+}
+
+.offcanvas {
+  transition: transform 0.6s ease, opacity 0.6s ease; /* Aumentamos el tiempo */
+}
+
+.offcanvas.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.offcanvas:not(.show) {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.transition {
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+.fs-6 {
+  font-size: 14px !important;
+  color: #7b7b7b !important;
+}
+.bg-danger {
+  background-color: #0b0b0b !important;
+}
+.btn-danger {
+  background-color: #ff6f41 !important;
+  border: 1px solid #ff6f41 !important;
+  color: white !important;
+}
+.btn-danger:hover {
+  opacity: 0.8 !important;
+}
