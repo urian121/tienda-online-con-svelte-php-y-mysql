@@ -6,7 +6,8 @@
    * Con $subtotal, Svelte automáticamente se suscribirá al store y actualizará el valor cuando cambie el carrito.
    */
 
-  import { cart, subtotal } from "../stores/cartStore";
+  import { cart } from "../stores/cartStore";
+  import { subtotal } from "../stores/subtotalStore";
 
   function generateWhatsAppMessage() {
     // Construir el mensaje con los productos del carrito

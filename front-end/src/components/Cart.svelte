@@ -9,6 +9,7 @@
     // Toggle para mostrar/ocultar el offcanvas
     let show = offcanvasElement.classList.toggle("show");
     if (!show) {
+      // Ocultar el offcanvas
       toggleOffcanvas(false);
     }
 

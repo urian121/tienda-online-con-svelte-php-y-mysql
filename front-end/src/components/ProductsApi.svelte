@@ -1,7 +1,9 @@
 <script>
   import { onMount } from "svelte";
-  import { addToCart, getProducts, cafes } from "../stores/cartStore";
+  import { addToCart } from "../stores/addToCartStore";
+  import { getProducts, cafes  } from "../stores/getProductsStore";
 
+  // Obtiene los productos del backend al cargar el componente
   onMount(() => {
     getProducts();
   });
@@ -11,7 +13,8 @@
   }
 </script>
 
-{#each $cafes as cafe}  <!-- 🔹 Usamos $cafes para acceder al store -->
+<!-- Usamos $cafes para acceder al store -->
+{#each $cafes as cafe}  
   <div class="col-md-3">
     <div class="card h-100 border-0 custom-card">
       <img src={`/fotos-cafe/${cafe.image}.jpg`} class="card-img-top" alt="{cafe.name}" />

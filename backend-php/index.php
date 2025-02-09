@@ -21,6 +21,10 @@ $tbl_carrito = 'tbl_carrito';
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
 
+/**
+ * Obtener todos los productos de la base de datos
+ * @return array
+ */
 if($action == 'getProducts'){
     $query = "SELECT * FROM $tbl_productos";
     $resultado = mysqli_query($con, $query);
@@ -72,15 +76,18 @@ if ($action == 'addToCart') {
     } else {
         echo json_encode(['error' => 'Error al agregar producto: ' . mysqli_error($con)]);
     }
-    exit; // 🔹 Importante para evitar contenido extra en la respuesta
+    exit; // Importante para evitar contenido extra en la respuesta
 }
 
 
 /**
  * Obtener los productos del carrito
+ * @return array
  */
-if ($action == 'getCart') {
-    $query = "SELECT c.id, c.producto_id, p.name, p.price, p.image, p.category, c.cantidad, c.agregado_en 
+if ($action == 'getProductsCart') {
+    $query = "SELECT 
+            c.id, c.producto_id, c.cantidad, c.agregado_en,
+            p.name, p.price, p.image, p.category
               FROM tbl_carrito c
               JOIN tbl_products p ON c.producto_id = p.id";
     $resultado = mysqli_query($con, $query);
@@ -95,17 +102,19 @@ if ($action == 'getCart') {
 }
 
 
-
-// 🔹 Eliminar producto del carrito
-if ($action == 'removeFromCart') {
+/**
+ * Eliminar un producto del carrito por su ID
+ * @param $id ID del producto
+ */
+if ($action == 'removeProductCart') {
     // Leer datos JSON
     $data = json_decode(file_get_contents("php://input"), true);
-
     if (!isset($data['id'])) {
         echo json_encode(["success" => false, "message" => "ID no proporcionado"]);
         exit();
     }
-
+    
+    // Escapar el ID del producto
     $id = intval($data['id']);
 
     // Verificar si el producto está en el carrito
@@ -130,5 +139,5 @@ if ($action == 'removeFromCart') {
     exit();
 }
 
-
+// Cerrar la conexión
 mysqli_close($con);

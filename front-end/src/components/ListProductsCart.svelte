@@ -1,10 +1,11 @@
 <script>
-  import { cart, getCart, removeFromCart } from "../stores/cartStore";
+  import { cart, getProductsCart } from "../stores/cartStore";
+  import { removeProductCart } from "../stores/removeProductCartStore";
   import { onMount } from "svelte";
 
+  // Obtiene los productos del carrito al cargar el componente
   onMount(() => {
-    getCart(); // Obtiene los productos del carrito al cargar el componente
-
+    getProductsCart();
     console.log("Productos en el carrito:", $cart);
   });
 </script>
@@ -34,7 +35,7 @@
           <button
             class="btn btn-danger mt-2 btn-borrar"
             aria-label="Borrar"
-            on:click={() => removeFromCart(item.id)}
+            on:click={() => removeProductCart(item.id)}
             ><i class="bi bi-trash3"></i></button
           >
         </div>

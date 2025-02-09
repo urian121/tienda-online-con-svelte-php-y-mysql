@@ -12,9 +12,6 @@
   import ListProductsCart from "./components/ListProductsCart.svelte";
   import SubTotalCart from "./components/SubTotalCart.svelte";
   import ApiWhatApp from "./components/ApiWhatApp.svelte";
-
-  // Mostrar el carrito en la consola
-  // $: console.log($cart);
 </script>
 
 <Cart />
@@ -22,7 +19,7 @@
 <!-- Contenido principal -->
 <div class="container my-5">
   <h1 class="text-center fw-bold">
-    Bienvenidos a Tu Tienda de Café <i class="bi bi-cup-straw"></i>
+    Bienvenidos a <span style="color: #333;">CaféExpress</span> - Tienda Online de Café ☕
   </h1>
   <div class="row g-4 mt-4">
     <ProductsApi />

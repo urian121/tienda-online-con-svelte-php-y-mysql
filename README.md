@@ -1,11 +1,19 @@
-# Tienda Online con Svelte: Carrito de Compras en Tiempo Real
+# CaféExpress - Tienda Online de Café ☕
+
+**CaféExpress** es una tienda en línea desarrollada con Svelte y Bootstrap para la interfaz de usuario, mientras que el backend utiliza PHP y MySQL para la gestión de productos y pedidos.
 
 ### Resultado final 🔥
 ![Resultado final](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/refs/heads/master/tienda-online-con-svelte-carrito-de-compras-en-tiempo-real.gif)
 
 ## Descripción
 
-Esta es una tienda en línea de café, donde los usuarios pueden agregar productos a su carrito, ver el subtotal de su pedido y enviarlo a través de WhatsApp. La aplicación está desarrollada con Svelte y utiliza Bootstrap para el diseño.
+La plataforma permite a los usuarios:
+✅ Explorar una variedad de cafés disponibles en la tienda.
+✅ Agregar productos al carrito de compras.
+✅ Gestionar su carrito (aumentar, disminuir o eliminar productos).
+✅ Finalizar la compra de manera sencilla.
+
+Este proyecto está diseñado para ofrecer una experiencia de compra rápida, eficiente y visualmente atractiva para los amantes del café. ☕✨
 
 ## Características
 
@@ -26,7 +34,7 @@ Esta es una tienda en línea de café, donde los usuarios pueden agregar product
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/urian121/tienda-online-con-svelte-carrito-de-compras-en-tiempo-real
+git clone https://github.com/urian121/tienda-online-con-svelte-php-y-mysql.git
 ```
 
 ### 2. Instalar dependencias
@@ -34,7 +42,7 @@ git clone https://github.com/urian121/tienda-online-con-svelte-carrito-de-compra
 Asegúrate de tener Node.js y npm instalados, luego instala las dependencias del proyecto.
 
 ```bash
-cd tienda-online-con-svelte-carrito-de-compras-en-tiempo-real
+cd tienda-online-con-svelte-php-y-mysql
 npm install
 ```
 

@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 07-02-2025 a las 22:06:39
--- Versión del servidor: 8.0.30
--- Versión de PHP: 8.1.10
+-- Servidor: localhost
+-- Tiempo de generación: 09-02-2025 a las 02:59:25
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_carrito` (
-  `id` int NOT NULL,
-  `producto_id` int NOT NULL,
-  `cantidad` int NOT NULL DEFAULT '1',
-  `agregado_en` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `producto_id` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL DEFAULT 1,
+  `agregado_en` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -39,18 +39,10 @@ CREATE TABLE `tbl_carrito` (
 --
 
 INSERT INTO `tbl_carrito` (`id`, `producto_id`, `cantidad`, `agregado_en`) VALUES
-(1, 3, 1, '2025-02-07 21:51:59'),
-(2, 1, 1, '2025-02-07 21:52:16'),
-(3, 3, 1, '2025-02-07 21:54:36'),
-(4, 3, 1, '2025-02-07 22:01:20'),
-(5, 2, 1, '2025-02-07 22:01:22'),
-(6, 2, 1, '2025-02-07 22:01:23'),
-(7, 1, 1, '2025-02-07 22:01:24'),
-(8, 1, 1, '2025-02-07 22:01:24'),
-(9, 2, 1, '2025-02-07 22:01:27'),
-(10, 3, 1, '2025-02-07 22:02:57'),
-(11, 2, 1, '2025-02-07 22:02:59'),
-(12, 2, 1, '2025-02-07 22:03:01');
+(31, 1, 10, '2025-02-09 00:54:06'),
+(32, 2, 6, '2025-02-09 00:54:08'),
+(36, 3, 3, '2025-02-09 01:05:23'),
+(37, 15, 1, '2025-02-09 01:05:28');
 
 -- --------------------------------------------------------
 
@@ -59,7 +51,7 @@ INSERT INTO `tbl_carrito` (`id`, `producto_id`, `cantidad`, `agregado_en`) VALUE
 --
 
 CREATE TABLE `tbl_products` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `image` varchar(255) NOT NULL,
@@ -113,7 +105,7 @@ ALTER TABLE `tbl_products`
 -- AUTO_INCREMENT de la tabla `tbl_carrito`
 --
 ALTER TABLE `tbl_carrito`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Restricciones para tablas volcadas

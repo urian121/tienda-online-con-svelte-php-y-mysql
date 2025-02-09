@@ -6,7 +6,7 @@
    * Con $subtotal, Svelte automáticamente se suscribirá al store y actualizará el valor cuando cambie el carrito.
    */
 
-  import { subtotal } from "../stores/cartStore";
+  import { subtotal } from "../stores/subtotalStore";
 </script>
 
 <h5 class="justify-content-between mb-2">

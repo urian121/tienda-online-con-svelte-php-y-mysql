@@ -1,6 +1,7 @@
 <script>
   import { toggleOffcanvas } from "../stores/offcanvasStore";
 
+  // Función para cerrar el offcanvas
   function closeOffcanvas() {
     const offcanvasElement = document.getElementById("offcanvasRight");
     offcanvasElement.classList.remove("show");
