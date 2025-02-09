@@ -1,8 +1,8 @@
 body {
-  background-color: #f9f9f9 !important;
+  background-color: #fbfafb !important;
 }
 h1 {
-  color: #ff4408 !important;
+  color: #ff4646 !important;
 }
 h4 {
   width: 100% !important;
@@ -73,12 +73,16 @@ h4 {
 }
 
 .offcanvas-header {
-  background-color: #cecece !important;
+  background-color: #ff4646 !important;
+  color: #f2f2f2 !important;
 }
-
+.badge{
+  background-color: #ff4646 !important;
+  color: #f2f2f2 !important;
+}
 .btn_shopping {
-  background-color: #ff6f41 !important;
-  border: 1px solid #ff6f41 !important;
+  background-color: #ff4646 !important;
+  border: 1px solid  #ff4646 !important;
   color: white !important;
 }
 .btn_shopping :hover {
@@ -87,7 +91,7 @@ h4 {
 }
 .fs-5 {
   font-size: 18px !important;
-  color: #595454 !important;
+  color: #ff4646 !important;
 }
 .fs-6 {
   font-size: 14px !important;
@@ -118,8 +122,8 @@ h4 {
   background-color: #0b0b0b !important;
 }
 .btn-danger {
-  background-color: #ff6f41 !important;
-  border: 1px solid #ff6f41 !important;
+  background-color: #ff4646 !important;
+  border: 1px solid #ff4646 !important;
   color: white !important;
 }
 .btn-danger:hover {

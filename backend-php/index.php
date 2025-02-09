@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Creando una API RESTful con los métodos GET, POST, PUT y DELETE utilizando PHP y MySQLi
+ * Creando una API RESTful con los métodos GET, POST, PUT y DELETE utilizando PHP y MySQL
  */
 // Establecer encabezados CORS para permitir solicitudes desde cualquier origen
 header("Access-Control-Allow-Origin: *");
@@ -9,10 +9,15 @@ header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Content-Type: application/json; charset=UTF-8");
 
+// Permitir preflight (CORS)
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(204);
+    exit();
+}
+
 require('configBD.php');
-$METHOD = $_SERVER['REQUEST_METHOD'];
 $tbl_productos = 'tbl_products';
-$tbl_carrito='tbl_carrito';
+$tbl_carrito = 'tbl_carrito';
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
 
@@ -75,7 +80,7 @@ if ($action == 'addToCart') {
  * Obtener los productos del carrito
  */
 if ($action == 'getCart') {
-    $query = "SELECT c.id, c.producto_id, p.name, p.price, p.image, c.cantidad, c.agregado_en 
+    $query = "SELECT c.id, c.producto_id, p.name, p.price, p.image, p.category, c.cantidad, c.agregado_en 
               FROM tbl_carrito c
               JOIN tbl_products p ON c.producto_id = p.id";
     $resultado = mysqli_query($con, $query);
@@ -91,10 +96,9 @@ if ($action == 'getCart') {
 
 
 
+// 🔹 Eliminar producto del carrito
 if ($action == 'removeFromCart') {
-    require_once 'conexion.php';
-
-    // Leer datos JSON del cuerpo de la solicitud
+    // Leer datos JSON
     $data = json_decode(file_get_contents("php://input"), true);
 
     if (!isset($data['id'])) {
@@ -104,19 +108,19 @@ if ($action == 'removeFromCart') {
 
     $id = intval($data['id']);
 
-    // Verificar si el producto tiene más de 1 unidad en el carrito
-    $queryCheck = "SELECT cantidad FROM carrito WHERE id = $id";
+    // Verificar si el producto está en el carrito
+    $queryCheck = "SELECT cantidad FROM $tbl_carrito WHERE id = $id";
     $resultCheck = mysqli_query($con, $queryCheck);
     $row = mysqli_fetch_assoc($resultCheck);
 
     if ($row) {
         if ($row['cantidad'] > 1) {
-            // Reducir cantidad en 1
-            $queryUpdate = "UPDATE carrito SET cantidad = cantidad - 1 WHERE id = $id";
+            // Reducir cantidad
+            $queryUpdate = "UPDATE $tbl_carrito SET cantidad = cantidad - 1 WHERE id = $id";
             mysqli_query($con, $queryUpdate);
         } else {
-            // Eliminar el producto si solo hay 1
-            $queryDelete = "DELETE FROM carrito WHERE id = $id";
+            // Eliminar producto
+            $queryDelete = "DELETE FROM $tbl_carrito WHERE id = $id";
             mysqli_query($con, $queryDelete);
         }
         echo json_encode(["success" => true]);

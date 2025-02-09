@@ -1,8 +1,7 @@
 import { writable, derived } from "svelte/store";
+
 let URL_API =
   "http://localhost/tienda-onlne-con-svelte-php-y-mysql/backend-php/index.php";
-let URL_API_GET_CART =
-  "http://localhost/tienda-onlne-con-svelte-php-y-mysql/backend-php/index.php?action=getCart";
 
 // Creamos un store con un arreglo vacío (carrito vacío)
 export const cart = writable([]);
@@ -16,20 +15,24 @@ export async function getProducts() {
     }
 
     const data = await response.json();
+    console.log("Productos recibidos del backend:", data);
     cafes.set(data); // 🔹 Guardamos los productos en el store
   } catch (error) {
     console.error("Error al obtener los productos:", error);
   }
 }
+
 export async function getCart() {
   try {
-    const response = await fetch(`${URL_API_GET_CART}?action=getCart`);
+    const response = await fetch(`${URL_API}?action=getCart`);
     if (!response.ok) {
       throw new Error(`Error en la petición: ${response.statusText}`);
     }
 
     const data = await response.json();
-    console.log(data);
+    console.log("Carrito recibido del backend:", data);
+
+    // Actualizamos el carrito en el store
     cart.set(data);
   } catch (error) {
     console.error("Error al obtener el carrito:", error);
@@ -38,6 +41,8 @@ export async function getCart() {
 
 // Función para agregar un producto al carrito
 export async function addToCart(product) {
+  console.log("Producto agregado al carrito:", product);
+
   try {
     const response = await fetch(`${URL_API}?action=addToCart`, {
       method: "POST",
@@ -51,9 +56,11 @@ export async function addToCart(product) {
       throw new Error(`Error en la petición: ${response.statusText}`);
     }
 
-    const contactoCreado = await response.json(); // Convertimos la respuesta a JSON
+    const contactoCreado = await response.json();
     console.log("Producto agregado al carrito:", contactoCreado);
-    cart.update((currentCart) => [...currentCart, contactoCreado]);
+
+    // Después de agregar el producto, obtenemos la versión actualizada del carrito
+    await getCart();
   } catch (error) {
     console.error("Error al agregar el producto al carrito:", error);
   }
@@ -74,18 +81,7 @@ export async function removeFromCart(id) {
     const result = await response.json();
 
     if (result.success) {
-      cart.update((currentCart) => {
-        return currentCart
-          .map((item) => {
-            if (item.id === id) {
-              return item.quantity > 1
-                ? { ...item, quantity: item.quantity - 1 }
-                : null;
-            }
-            return item;
-          })
-          .filter((item) => item !== null);
-      });
+      await getCart(); // 🔹 Recarga el carrito desde el backend
     } else {
       console.error("Error al eliminar del carrito:", result.message);
     }
@@ -94,7 +90,7 @@ export async function removeFromCart(id) {
   }
 }
 
-
+// Función para mostrar el offcanvas
 function showOffcanvas() {
   const offcanvasElement = document.getElementById("offcanvasRight");
   offcanvasElement.classList.add("show");
@@ -106,6 +102,6 @@ function showOffcanvas() {
  */
 export const subtotal = derived(cart, ($cart) => {
   return $cart
-    .reduce((total, item) => total + item.price * item.quantity, 0)
+    .reduce((total, item) => total + item.price * item.cantidad, 0)
     .toFixed(2);
 });

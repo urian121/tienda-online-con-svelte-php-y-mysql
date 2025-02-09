@@ -12,7 +12,7 @@
     // Construir el mensaje con los productos del carrito
     const cartItems = $cart
       .map((item) => {
-        return `${item.name} - ${item.quantity} x $${item.price}`;
+        return `${item.name} - ${item.cantidad} x $${item.price}`;
       })
       .join("\n"); // Une todos los productos con salto de línea
 

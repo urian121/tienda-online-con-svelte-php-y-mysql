@@ -4,6 +4,8 @@
 
   onMount(() => {
     getCart(); // Obtiene los productos del carrito al cargar el componente
+
+    console.log("Productos en el carrito:", $cart);
   });
 </script>
 
@@ -20,12 +22,12 @@
         </div>
         <div class="col-6">
           <h6 class="mb-1 title-product">{item.name}</h6>
-          <p class="mb-0 detalles-product">{item.category}</p>
+          <p class="mb-0 detalles-product badge text-bg-info">{item.category}</p>
         </div>
 
         <div class="col-3 text-end">
           <span class="fw-bold"
-            ><span class="fs-6 color-gris">{item.quantity}x</span><span
+            ><span class="fs-6 color-gris">{item.cantidad}x</span><span
               class="fs-5 precio">${item.price}</span
             ></span
           >

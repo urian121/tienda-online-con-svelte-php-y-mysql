@@ -32,7 +32,7 @@ CREATE TABLE `tbl_carrito` (
   `producto_id` int NOT NULL,
   `cantidad` int NOT NULL DEFAULT '1',
   `agregado_en` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `tbl_carrito`
@@ -64,7 +64,7 @@ CREATE TABLE `tbl_products` (
   `price` decimal(10,2) NOT NULL,
   `image` varchar(255) NOT NULL,
   `category` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `tbl_products`
