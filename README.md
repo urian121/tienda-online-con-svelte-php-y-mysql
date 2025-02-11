@@ -3,7 +3,7 @@
 **CaféExpress** es una tienda en línea desarrollada con Svelte y Bootstrap para la interfaz de usuario, mientras que el backend utiliza PHP y MySQL para la gestión de productos y pedidos.
 
 ### Resultado final 🔥
-![Resultado final](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/refs/heads/master/tienda-online-con-svelte-carrito-de-compras-en-tiempo-real.gif)
+![Resultado final](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/refs/heads/master/tienda-online-svelte-y-php.gif)
 
 ## Descripción
 
