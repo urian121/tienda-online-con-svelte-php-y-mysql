@@ -5,7 +5,7 @@ Este documento describe los endpoints disponibles en la API del backend de la ti
 ## Base URL
 
 ```
-http://localhost/tienda-onlne-con-svelte-php-y-mysql/backend-php/index.php
+http://localhost/tienda-online-con-svelte-php-y-mysql/backend-php/index.php
 ```
 
 

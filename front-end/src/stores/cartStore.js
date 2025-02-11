@@ -2,7 +2,7 @@
 import { writable } from "svelte/store";
 
 export const URL_API =
-  "http://localhost/tienda-onlne-con-svelte-php-y-mysql/backend-php/index.php";
+  "http://localhost/tienda-online-con-svelte-php-y-mysql/backend-php/index.php";
 
 export const cart = writable([]); // Creamos un store con un arreglo vacío (carrito vacío)
 
