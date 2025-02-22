@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Creando una API RESTful con los métodos GET, POST, PUT y DELETE utilizando PHP y MySQL
  */
@@ -19,6 +18,26 @@ require('configBD.php');
 $tbl_productos = 'tbl_products';
 $tbl_carrito = 'tbl_carrito';
 $action = isset($_GET['action']) ? $_GET['action'] : '';
+$cantidad = 1; // Cantidad predeterminada para agregar o eliminar al carrito
+// Leer datos JSON de la solicitud
+$data = json_decode(file_get_contents("php://input"), true);
+
+
+/**
+ * Validar si el ID del producto es un número
+ * @param $data Datos de la solicitud
+ * @param $con Conexión a la base de datos
+ * @return string
+ */
+function validarProductoID($data, $con)
+{
+    if (!isset($data['id']) || !is_numeric($data['id'])) {
+        echo json_encode(['error' => 'ID de producto inválido']);
+        exit;
+    }
+    // Escapar el ID del producto
+    return mysqli_real_escape_string($con, $data['id']);
+}
 
 
 /**
@@ -29,11 +48,11 @@ if($action == 'getProducts'){
     $query = "SELECT * FROM $tbl_productos";
     $resultado = mysqli_query($con, $query);
 
-    $usuarios = [];
+    $productos = [];
     while ($fila = mysqli_fetch_assoc($resultado)) {
-        $usuarios[] = $fila;
+        $productos[] = $fila;
     }
-    echo json_encode($usuarios);
+    echo json_encode($productos);
     exit();
 }
 
@@ -43,18 +62,8 @@ if($action == 'getProducts'){
  * @param $cantidad Cantidad del producto
  */
 if ($action == 'addToCart') {
-    // Obtener los datos enviados en la solicitud
-    $data = json_decode(file_get_contents("php://input"), true);
-
-    // Validar que los datos sean correctos
-    if (!isset($data['id']) || !is_numeric($data['id'])) {
-        echo json_encode(['error' => 'ID de producto inválido']);
-        exit;
-    }
-
-    // Escapar el ID del producto
-    $id = mysqli_real_escape_string($con, $data['id']);
-    $cantidad = 1;
+    // Se valida el ID del producto antes de continuar
+    $id = validarProductoID($data, $con);
 
     // Verificar si el producto ya está en el carrito
     $checkQuery = "SELECT id, cantidad FROM $tbl_carrito WHERE producto_id = '$id'";
@@ -62,7 +71,7 @@ if ($action == 'addToCart') {
 
     if ($row = mysqli_fetch_assoc($result)) {
         // Si ya existe, actualizar la cantidad
-        $newCantidad = $row['cantidad'] + 1;
+        $newCantidad = $row['cantidad'] + $cantidad;
         $updateQuery = "UPDATE $tbl_carrito SET cantidad = '$newCantidad' WHERE id = '{$row['id']}'";
         $querySuccess = mysqli_query($con, $updateQuery);
     } else {
@@ -107,15 +116,7 @@ if ($action == 'getProductsCart') {
  * @param $id ID del producto
  */
 if ($action == 'removeProductCart') {
-    // Leer datos JSON
-    $data = json_decode(file_get_contents("php://input"), true);
-    if (!isset($data['id'])) {
-        echo json_encode(["success" => false, "message" => "ID no proporcionado"]);
-        exit();
-    }
-    
-    // Escapar el ID del producto
-    $id = intval($data['id']);
+    $id = validarProductoID($data, $con); // Se pasa la conexión como parámetro
 
     // Verificar si el producto está en el carrito
     $queryCheck = "SELECT cantidad FROM $tbl_carrito WHERE id = $id";
@@ -125,7 +126,7 @@ if ($action == 'removeProductCart') {
     if ($row) {
         if ($row['cantidad'] > 1) {
             // Reducir cantidad
-            $queryUpdate = "UPDATE $tbl_carrito SET cantidad = cantidad - 1 WHERE id = $id";
+            $queryUpdate = "UPDATE $tbl_carrito SET cantidad = cantidad - $cantidad WHERE id = $id";
             mysqli_query($con, $queryUpdate);
         } else {
             // Eliminar producto
