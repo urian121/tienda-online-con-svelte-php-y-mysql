@@ -25,7 +25,7 @@
   }
 </script>
 
-<button
+<button disabled={$cart.length === 0}
   class="btn btn-primary mt-5 w-100"
   on:click={() => {
     const message = generateWhatsAppMessage();
