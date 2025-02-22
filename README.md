@@ -8,10 +8,11 @@
 ## Descripción
 
 La plataforma permite a los usuarios:
-✅ Explorar una variedad de cafés disponibles en la tienda.
-✅ Agregar productos al carrito de compras.
-✅ Gestionar su carrito (aumentar, disminuir o eliminar productos).
-✅ Finalizar la compra de manera sencilla.
+
+-  ✅ Explorar una variedad de cafés disponibles en la tienda.
+-  ✅ Agregar productos al carrito de compras.
+-  ✅ Gestionar su carrito (aumentar, disminuir o eliminar productos).
+- ✅ Finalizar la compra de manera sencilla.
 
 Este proyecto está diseñado para ofrecer una experiencia de compra rápida, eficiente y visualmente atractiva para los amantes del café. ☕✨
 
